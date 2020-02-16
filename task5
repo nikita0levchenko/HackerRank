@@ -1,0 +1,15 @@
+def f(delim:Int,arr:List[Int]):List[Int] = {
+  for(i <- arr)
+      if(i < delim)
+        println(i)
+  List()
+}
+
+def fWithRecursion(delim: Int, arr:List[Int]):List[Int] = {
+  arr match {
+    case x :: Nil  => if(x < delim) println(x)
+      List()
+    case x :: xs   => if(x < delim) println(x)
+      fWithRecursion(delim, xs)
+  }
+}
