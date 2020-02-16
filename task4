@@ -1,0 +1,15 @@
+def f(num:Int,arr:List[Int]):List[Int] = {
+    for(i <- arr)
+     for(_ <- 1 to num)
+      println(i)
+    List()
+}
+
+def fWithRecursion(num:Int,arr:List[Int]):List[Int] = {
+    arr match {
+        case x :: Nil => for(_ <- 1 to num) println(x)
+         List()
+        case x :: xs  => for(_ <- 1 to num) println(x)
+         fWithRecursion(num, xs)
+    }
+}
