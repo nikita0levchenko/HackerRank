@@ -1,0 +1,12 @@
+def f(arr:List[Int]):List[Int] = {
+  def reverseHelper(arr:List[Int], result:List[Int]):List[Int] = if(arr.tail == Nil) arr.head :: result else reverseHelper(arr.tail, arr.head :: result)
+  reverseHelper(arr,List())
+}
+
+def fWithTailRecursion(arr:List[Int]):List[Int] = {
+    def reverseHelper(arr:List[Int], result:List[Int]):List[Int] = arr match {
+        case x :: Nil => x :: result
+        case x :: xs  => reverseHelper(xs, x :: result)
+    }
+    reverseHelper(arr,List())
+}
