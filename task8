@@ -1,0 +1,1 @@
+def f(arr:List[Int]):Int = if(arr.length > 100 || arr.isEmpty) 0 else arr.filter(x => (x % 2 == 0) && (x < 100) && (x > 0)).sum
