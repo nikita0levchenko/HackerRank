@@ -1,0 +1,14 @@
+import scala.io.StdIn.readInt
+import scala.io.StdIn.readLine
+
+object Solution extends App {
+  val k = readLine("Enter k: ")
+  print("Enter n: ")
+  val n = readInt()
+  val p:Int = (k * n).toList.map(_.asDigit).sum
+  print(superDigit(p))
+  def superDigit(digit:Int): Int = digit / 10 match {
+    case 0 => digit
+    case _ => superDigit(digit % 10 + superDigit(digit / 10))
+  }
+}
