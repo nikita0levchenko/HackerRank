@@ -1,0 +1,22 @@
+object Solution {
+  def main(args: Array[String]) {
+    val stdin = scala.io.StdIn
+
+    val n = stdin.readLine.trim.toInt
+
+    for (nItr <- 1 to n) {
+      val x = stdin.readLine.trim.toDouble
+      printf("%.4f\n".format(function(x,0)))
+    }
+
+    def function(x:Double, n:Int):Double = n match {
+      case 9 => math.pow(x,9)/factorial(9)
+      case _ => math.pow(x, n)/factorial(n) + function(x,n+1)
+    }
+
+    def factorial(i: Int):Int = i match {
+      case 0 => 1
+      case _ => i * factorial(i-1)
+    }
+  }
+}
